@@ -3,12 +3,15 @@
 import 'package:flutter_learning/Common/redux/FLState.dart';
 import 'package:flutter_learning/main.dart';
 import 'package:flutter_learning/models/index.dart';
+import 'package:flutter_learning/page/mine/mine_setting_localization.dart';
+import 'package:flutter_learning/page/mine/mine_setting_theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'homePage.dart';
-import 'package:flutter_learning/common/tools/localization.dart';
+import '../mine/mine_setting.dart';
+import '../tabBar/homePage.dart';
+import 'package:flutter_learning/common/localization/localization.dart';
 
 class FLHomeApp extends StatefulWidget {
   const FLHomeApp({super.key});
@@ -43,8 +46,6 @@ class _FLHomeAppState extends State<FLHomeApp> {
     return StoreProvider(
       store: store,
       child: StoreBuilder<FLState>(builder: (context, store) {
-        print(store.state.userInfo?.name);
-        print(store.state.themeData);
         /// 使用StoreBuilder获取store中的theme、locale
         Widget app = MaterialApp(
           localizationsDelegates: [
@@ -58,10 +59,11 @@ class _FLHomeAppState extends State<FLHomeApp> {
           routes: <String, WidgetBuilder>{
             "homePage": (context) => const HomePageRoute(),
             "MyApp": (context) => const MyApp(),
+            "setting": (context) => const MineSettingRoute(),
+            "setting_theme": (context) => const MineSettingThemeRoute(),
+            "setting_localization": (context) => const MineSettingLocalizationRoute(),
           },
           home: const HomePageRoute(),
-          // color: store.state.themeData?.primaryColor,
-          color: Colors.red,
         );
 
         return app;
