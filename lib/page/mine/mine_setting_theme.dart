@@ -20,7 +20,7 @@ class _MineSettingThemeRouteState extends State<MineSettingThemeRoute> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: const Text("主题设置"),
+        title: Text(globalStringBase(context).mine_setting_theme),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: ListView(
