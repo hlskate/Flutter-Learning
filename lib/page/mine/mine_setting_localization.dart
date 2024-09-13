@@ -20,7 +20,7 @@ class _MineSettingLocalizationRouteState extends State<MineSettingLocalizationRo
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: const Text("多语言设置"),
+        title: Text(globalStringBase(context).mine_setting_language),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: ListView(

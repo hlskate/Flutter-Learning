@@ -2,13 +2,13 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/common/localization/localization.dart';
 import 'package:flutter_learning/models/index.dart';
 
 class MineHeaderWidget extends StatelessWidget {
 
   MineHeaderWidget({super.key});
   var _screenWidth = 375.0;
-
   @override
   Widget build(BuildContext context) {
 
@@ -24,9 +24,9 @@ class MineHeaderWidget extends StatelessWidget {
           children: <Widget>[
             const Padding(padding: EdgeInsets.only(top: 60)),
             _settingButton(context),
-            _mainInfoView(),
+            _mainInfoView(context),
             const Padding(padding: EdgeInsets.only(top: 10)),
-            _friendInfoView(),
+            _friendInfoView(context),
           ],
       ),
     );
@@ -44,32 +44,32 @@ class MineHeaderWidget extends StatelessWidget {
     );
   }
 
-  _mainInfoView() {
-    return const Column(
+  _mainInfoView(BuildContext context) {
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text("  登录/注册", style: TextStyle(fontSize: 22, color: Colors.white)),
+            Text(globalStringBase(context).mine_tab_login, style: TextStyle(fontSize: 22, color: Colors.white)),
             Icon(Icons.arrow_right, size: 20),
           ],
         ),
-        Text("  登录九秀直播，开启欢乐生活", style: TextStyle(fontSize: 14, color: Colors.white70)),
+        Text(globalStringBase(context).mine_tab_login_desc, style: TextStyle(fontSize: 14, color: Colors.white70)),
       ],
     );
   }
 
-  _friendInfoView() {
+  _friendInfoView(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 80),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          _friendInfoItems("0", "好友"),
-          _friendInfoItems("33", "关注"),
-          _friendInfoItems("22", "粉丝"),
-          _friendInfoItems("1", "最近来访"),
+          _friendInfoItems("0", globalStringBase(context).mine_tab_friend),
+          _friendInfoItems("33", globalStringBase(context).mine_tab_attention),
+          _friendInfoItems("22", globalStringBase(context).mine_tab_fans),
+          _friendInfoItems("1", globalStringBase(context).mine_tab_vistor),
         ],
       ),
     );
@@ -109,10 +109,10 @@ class MinePlayWidget extends StatelessWidget {
         height: 80,
         child: Row(
           children: <Widget>[
-            _playItems("static/images/mine_bag_icon@2x.png", "我的道具"),
-            _playItems("static/images/mine_dress_icon@2x.png", "个性装扮"),
-            _playItems("static/images/ic_person_active_center@3x.png", "活动中心"),
-            _playItems("static/images/ic_person_noble@2x.png", "贵族"),
+            _playItems("static/images/mine_bag_icon@2x.png", globalStringBase(context).mine_tab_daoju),
+            _playItems("static/images/mine_dress_icon@2x.png", globalStringBase(context).mine_tab_dress),
+            _playItems("static/images/ic_person_active_center@3x.png", globalStringBase(context).mine_tab_activityCenter),
+            _playItems("static/images/ic_person_noble@2x.png", globalStringBase(context).mine_tab_noble),
           ],
         ),
       ),
@@ -144,6 +144,7 @@ class MineMoneyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _screenWidth = MediaQuery.of(context).size.width;
+    var _stringBase = globalStringBase(context);
     return Padding(
         padding: const EdgeInsets.all(10),
         child: Container(
@@ -152,8 +153,8 @@ class MineMoneyWidget extends StatelessWidget {
           width: _screenWidth - 20,
           child: Row(
             children: <Widget>[
-              _buildNineMoney("余额/九币", "990", "财富等级", "---"),
-              _buildNineMoney("九点", "0", "特权等级", "---"),
+              _buildNineMoney(_stringBase.mine_tab_money, "990", _stringBase.mine_tab_wealthLevel, "---"),
+              _buildNineMoney(_stringBase.mine_tab_moneyPoint, "0", _stringBase.mine_tab_specialLevel, "---"),
             ],
           ),
         ),
@@ -220,6 +221,7 @@ class MineToolsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _screenWidth = MediaQuery.of(context).size.width;
+    var _stringBase = globalStringBase(context);
     return Padding(
       padding: EdgeInsets.all(10),
       child: Container(
@@ -230,13 +232,13 @@ class MineToolsWidget extends StatelessWidget {
           runSpacing: 5.0, // 纵轴（垂直）方向间距
           alignment: WrapAlignment.start,
           children: <Widget>[
-            _buildToolsItem("static/images/tabbar_home.png", "房间管理"),
-            _buildToolsItem("static/images/tabbar_setting.png", "开播提醒"),
-            _buildToolsItem("static/images/tabbar_dynamic.png", "隐身"),
-            _buildToolsItem("static/images/tabbar_home.png", "帮助中心"),
-            _buildToolsItem("static/images/tabbar_setting.png", "每日任务"),
-            _buildToolsItem("static/images/tabbar_dynamic.png", "道具商城"),
-            _buildToolsItem("static/images/tabbar_home.png", "真爱守护"),
+            _buildToolsItem("static/images/tabbar_home.png", _stringBase.mine_tab_tool_roomManager),
+            _buildToolsItem("static/images/tabbar_setting.png", _stringBase.mine_tab_tool_startLive),
+            _buildToolsItem("static/images/tabbar_dynamic.png", _stringBase.mine_tab_tool_stealth),
+            _buildToolsItem("static/images/tabbar_home.png", _stringBase.mine_tab_tool_helpCenter),
+            _buildToolsItem("static/images/tabbar_setting.png", _stringBase.mine_tab_tool_dayTask),
+            _buildToolsItem("static/images/tabbar_dynamic.png", _stringBase.mine_tab_tool_prop),
+            _buildToolsItem("static/images/tabbar_home.png", _stringBase.mine_tab_tool_trueLove),
           ],
         ),
       ),

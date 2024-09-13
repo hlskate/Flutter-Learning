@@ -51,4 +51,7 @@ class FLLocalizations {
   }
 }
 
+FLStringBase globalStringBase(BuildContext context) {
+  return FLLocalizations.of(context).currentLocalized!;
+}
 

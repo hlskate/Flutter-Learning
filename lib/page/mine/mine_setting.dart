@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_learning/common/localization/localization.dart';
 
 class MineSettingRoute extends StatefulWidget {
 
@@ -16,21 +17,22 @@ class _MineSettingRouteState extends State<MineSettingRoute> {
   @override
   Widget build(BuildContext context) {
 
+    var _stringBase = globalStringBase(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("设置"),
+        title: Text(globalStringBase(context).mine_setting_name),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: ListView(
         children: <Widget>[
-          _buildRows("账号与安全", null, true, 0),
-          _buildRows("隐私设置", null, true, 1),
-          _buildRows("青少年模式", "未开启", true, 2),
-          _buildRows("深色模式", null, true, 3),
-          _buildRows("清理缓存", "8.0M", false, 4),
-          _buildRows("关于我们", "v2.6.0Debug", true, 5),
-          _buildRows("主题设置", null, true, 6),
-          _buildRows("多语言设置", null, true, 7),
+          _buildRows(_stringBase.mine_setting_account, null, true, 0),
+          _buildRows(_stringBase.mine_setting_privacy, null, true, 1),
+          _buildRows(_stringBase.mine_setting_young, "未开启", true, 2),
+          _buildRows(_stringBase.mine_setting_darkMode, null, true, 3),
+          _buildRows(_stringBase.mine_setting_clearCache, "8.0M", false, 4),
+          _buildRows(_stringBase.mine_setting_aboutUs, "v2.6.0Debug", true, 5),
+          _buildRows(_stringBase.mine_setting_theme, null, true, 6),
+          _buildRows(_stringBase.mine_setting_language, null, true, 7),
         ],
       )
     );
