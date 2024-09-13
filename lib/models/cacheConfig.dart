@@ -1,4 +1,4 @@
-import 'package:json_annotation/json_annotation.dart' show JsonSerializable;
+import 'package:json_annotation/json_annotation.dart';
 
 part 'cacheConfig.g.dart';
 

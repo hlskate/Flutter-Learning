@@ -140,6 +140,18 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "dio",
+      "rootUri": "file:///Users/helongyi/.pub-cache/hosted/pub.dev/dio-5.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "dio_web_adapter",
+      "rootUri": "file:///Users/helongyi/.pub-cache/hosted/pub.dev/dio_web_adapter-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///Users/helongyi/.pub-cache/hosted/pub.dev/fake_async-1.3.1",
       "packageUri": "lib/",
@@ -482,7 +494,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-09-12T10:03:58.689105Z",
+  "generated": "2024-09-13T10:43:56.068974Z",
   "generator": "pub",
   "generatorVersion": "3.5.2",
   "flutterRoot": "file:///Users/helongyi/Desktop/FLUTTER_INSTALL_PATH/flutter",

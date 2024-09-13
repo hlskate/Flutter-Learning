@@ -1,6 +1,8 @@
 ### 项目说明
 本项目用于从0到1搭建一个Flutter项目，会持续更新完善功能
 
+一键生成models命令
+flutter packages pub run build_runner build
 
 ***
 #### Flutter学习资料

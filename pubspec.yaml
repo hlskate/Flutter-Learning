@@ -38,6 +38,7 @@ dependencies:
   json_annotation: ^4.6.0
   flutter_redux: 0.10.0
   redux: any
+  dio: ^5.7.0
   flutter_localizations:
     sdk: flutter
 dev_dependencies:
@@ -97,3 +98,4 @@ flutter:
   # see https://flutter.dev/to/font-from-package
   assets:
     - static/images/
+    - static/images/home_top.jpeg
